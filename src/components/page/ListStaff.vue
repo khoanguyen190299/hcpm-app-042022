@@ -118,7 +118,7 @@ export default {
       this.staffItems = data
     },
     editStaff() {
-      router.push('/home/list-staff/edit-staff/')
+      router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
     },
     deleteStaff() {
 

@@ -28,7 +28,7 @@ export default {
   components: {ModalConfirmDeleteStaff},
   methods: {
     started() {
-      router.push('/login/')
+      router.push('/hcpm-app-042022/login/')
     }
   }
 }

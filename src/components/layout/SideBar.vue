@@ -77,22 +77,22 @@ export default {
   name: "SideBar",
   methods: {
     openStaff() {
-      router.push('/home/staff/')
+      router.push('/hcpm-app-042022/home/staff/')
     },
     openListStaff() {
-      router.push('/home/list-staff/')
+      router.push('/hcpm-app-042022/home/list-staff/')
     },
     openAddStaff() {
-      router.push('/home/add-staff/')
+      router.push('/hcpm-app-042022/home/add-staff/')
     },
     openCustomer() {
-      router.push('/home/customer/')
+      router.push('/hcpm-app-042022/home/customer/')
     },
     openListCustomer() {
-      router.push('/home/list-customer/')
+      router.push('/hcpm-app-042022/home/list-customer/')
     },
     openAddCustomer() {
-      router.push('/home/add-customer/')
+      router.push('/hcpm-app-042022/home/add-customer/')
     }
   }
 }

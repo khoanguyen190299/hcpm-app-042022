@@ -52,11 +52,14 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "Log-in",
   methods: {
     login() {
-      window.open("http://localhost:8080/home", "_self");
+      //window.open("http://localhost:8080/hcpm-app-042022/home", "_self");
+      router.push('/hcpm-app-042022/home/')
     }
   }
 }

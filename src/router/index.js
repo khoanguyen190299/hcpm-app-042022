@@ -10,61 +10,67 @@ import ListCustomer from "@/components/page/ListCustomer";
 import EditCustomer from "@/components/page/EditCustomer";
 import EditStaff from "@/components/page/EditStaff";
 import OnBoarding from "@/components/page/OnBoarding";
+import HomePage from "@/components/page/HomePage";
 
 
 const routes = [
     {
-        path: "/",
+        path: "/hcpm-app-042022/home/",
+        name: "HomePage",
+        component: HomePage,
+    },
+    {
+        path: "/hcpm-app-042022/",
         name: "Onboarding",
         component: OnBoarding
     },
     {
-        path: "/home/staff",
+        path: "/hcpm-app-042022/home/staff",
         name: "Staff",
         component: Staff
     },
     {
-        path: "/login",
+        path: "/hcpm-app-042022/login",
         name: "Login",
         component: Login,
     },
     {
-        path: "/sign-up",
+        path: "/hcpm-app-042022/sign-up",
         name: "Sig-up",
         component: SignUp,
     },
     {
-        path: "/home/list-staff/",
+        path: "/hcpm-app-042022/home/list-staff/",
         name: "ListStaff",
         component: ListStaff,
     },
     {
-        path: "/home/add-staff/",
+        path: "/hcpm-app-042022/home/add-staff/",
         name: "AddStaff",
         component: AddStaff,
     },
     {
-        path: "/home/list-staff/edit-staff/",
+        path: "/hcpm-app-042022/home/list-staff/edit-staff/",
         name: "EditStaff",
         component: EditStaff,
     },
     {
-        path: "/home/customer/",
+        path: "/hcpm-app-042022/home/customer/",
         name: "Customer",
         component: Customer,
     },
     {
-        path: "/home/add-customer/",
+        path: "/hcpm-app-042022/home/add-customer/",
         name: "AddCustomer",
         component: AddCustomer,
     },
     {
-        path: "/home/list-customer/",
+        path: "/hcpm-app-042022/home/list-customer/",
         name: "ListCustomer",
         component: ListCustomer,
     },
     {
-        path: "/home/edit-customer/",
+        path: "/hcpm-app-042022/home/edit-customer/",
         name: "AEditCustomer",
         component: EditCustomer,
     },
