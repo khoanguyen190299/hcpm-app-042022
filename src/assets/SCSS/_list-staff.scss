@@ -1,0 +1,95 @@
+.staff-header {
+  padding: 12px;
+  border-bottom: 1px solid #c5bdbd;
+  position: fixed;
+}
+
+.staff {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-content {
+  background-color: #efeded;
+  padding: 12px;
+  height: 100%;
+  margin-top: 44px;
+  overflow: auto;
+}
+
+.staff-box {
+  background-color: white;
+  padding: 12px;
+  overflow: auto;
+  //box-shadow: 0 0 3px white;
+}
+
+.input-search {
+  max-height: 31px;
+}
+
+.search {
+  position: relative;
+}
+
+.icon-search {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.table-content .table {
+  margin-bottom: 0;
+}
+
+.table-content {
+  //box-shadow: 0 0 1px #a3a5a7;
+  height: 100%;
+}
+
+.th-class-1 {
+  min-width: 50px;
+}
+
+.th-class-2 {
+  min-width: 90px;
+}
+
+.th-class-3 {
+  min-width: 110px;
+}
+
+.th-class-4 {
+  min-width: 130px;
+}
+
+.table-title {
+  background-color: #d1caca !important;
+}
+
+.action {
+  position: sticky;
+  right: 0;
+  text-align: center;
+}
+
+.icon-action {
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action-item {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  padding: 8px;
+  margin: 0 -1px;
+}

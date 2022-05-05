@@ -10,7 +10,17 @@
           <input
               type="email"
               class="form-control mt-3"
-              placeholder="Username"
+              placeholder="Email"
+              style="
+                background-color: Transparent;
+                background-repeat:no-repeat;
+                color: white;
+              "
+          >
+          <input
+              type="text"
+              class="form-control mt-3"
+              placeholder="Số điện thoại"
               style="
                 background-color: Transparent;
                 background-repeat:no-repeat;
@@ -37,13 +47,10 @@
                 color: white;
               "
           >
-          <div class="d-flex justify-content-between mt-3">
-            <div class="d-flex align-items-center">
-              <input type="checkbox">
-              <p class="ms-2 mb-0">Remember</p>
-            </div>
-            <a class="sign-up" href="#">Đăng ký</a>
-          </div>
+          <p class="mb-0 mt-3">
+            <span class="fs-12">Nếu bạn đã có tài khoản, </span>
+            <a class="text-decoration-none" href="http://localhost:8080/login">Đăng nhập</a>
+          </p>
         </div>
         <div class="d-flex">
           <button
@@ -51,19 +58,17 @@
               type="submit"
               @click="login"
           >
-            Đăng nhập
+            Đăng ký
           </button>
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
 <script>
 export default {
-  name: "Sign-up",
+  name: "SignUp",
   methods: {
     login() {
       window.open("http://localhost:8080/login", "_self");

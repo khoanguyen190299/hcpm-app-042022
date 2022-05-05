@@ -1,10 +1,12 @@
 <template>
-$END$
+  <div class="container">
+    <div class="">home</div>
+  </div>
 </template>
 
 <script>
 export default {
-name: "Login"
+  name: "HomePage"
 }
 </script>
 
