@@ -18,5 +18,5 @@ export default {
 </script>
 
 <style>
-
+@import "assets/SCSS/_side-bar.scss";
 </style>

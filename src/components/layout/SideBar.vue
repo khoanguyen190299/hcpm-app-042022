@@ -6,34 +6,38 @@
         <div class="logo-sidebar">
           <img class="w-100" src="../../assets/images/logo.png" alt>
         </div>
-        <a class="list-staff d-flex justify-content-between" href="#" @click="openStaff">
-          <div class="d-flex align-items-center">
-            <div class="icon-user">
-              <img class="w-100" src="../../assets/images/icons/user.png">
+        <div class="d-flex list-staff">
+          <a class="list-staff-title flex-grow-1" href="#" @click="openStaff">
+            <div class="d-flex align-items-center">
+              <div class="icon-user">
+                <img class="w-100" src="../../assets/images/icons/user.png">
+              </div>
+              <p class="mb-0 ms-2">Nhân viên</p>
             </div>
-            <p class="mb-0 ms-2">Nhân viên</p>
-          </div>
+          </a>
           <label class="icon" for="show-detail-staff">
             <img class="w-100" src="../../assets/images/icons/right-arrow.png">
           </label>
-        </a>
+        </div>
         <input type="checkbox" class="d-none" id="show-detail-staff" checked>
         <div class="staff-detail">
           <a class="staff-item" href="#" @click="openListStaff">Danh sách nhân viên</a>
           <a class="staff-item" href="#" @click="openAddStaff">Thêm nhân viên</a>
         </div>
 
-        <a class="list-staff d-flex justify-content-between" href="#" @click="openCustomer">
-          <div class="d-flex align-items-center">
-            <div class="icon-user">
-              <img class="w-100" src="../../assets/images/icons/user.png">
+        <div class="d-flex list-staff">
+          <a class="list-staff-title flex-grow-1" href="#" @click="openCustomer">
+            <div class="d-flex align-items-center">
+              <div class="icon-user">
+                <img class="w-100" src="../../assets/images/icons/user.png">
+              </div>
+              <p class="mb-0 ms-2 abc">Khách hàng</p>
             </div>
-            <p class="mb-0 ms-2">Khách hàng</p>
-          </div>
-          <label id="abc" class="icon" for="show-detail-custumer">
+          </a>
+          <label class="icon" for="show-detail-custumer">
             <img class="w-100" src="../../assets/images/icons/right-arrow.png">
           </label>
-        </a>
+        </div>
         <input type="checkbox" class="d-none" id="show-detail-custumer" checked>
         <div class="custumer-detail">
           <a class="custumer-item" href="#" @click="openListCustomer">Danh sách khách hàng</a>
@@ -56,12 +60,11 @@
         <p class="mb-0"><a class="text-decoration-none" href="#"> CoreUI© </a> 2020 creativeLabs.</p>
         <p class="mb-0">
           Powered by
-          <a class="text-decoration-none" href="#">
+          <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
             Bootstrap
-
           </a>
           &
-          <a class="text-decoration-none" href="#">
+          <a class="text-decoration-none" href="https://vuejs.org/" target="_blank">
             VueJS
           </a>
         </p>

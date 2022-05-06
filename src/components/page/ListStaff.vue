@@ -56,7 +56,7 @@
               <div class="table-content th-class-3">{{ staff.lang }}</div>
               <div class="table-content bg-white action th-class-3">
                 <div class="action-item d-flex justify-content-center m-auto">
-                  <div @click="editStaff" title="Edit" class="me-3 icon-action">
+                  <div @click="editStaff(staff)" title="Edit" class="me-3 icon-action">
                     <img class="w-100" src="../../assets/images/icons/editing.png">
                   </div>
                   <div @click="deleteStaff(staff)" title="Delete" class="icon-action">
@@ -103,6 +103,7 @@
 
 <script>
 import router from "@/router";
+import useEmitter from "@/composables/useEmitter";
 export default {
   name: "ListStaff",
   components: {},
@@ -180,12 +181,14 @@ export default {
     addStaff() {
       router.push('/hcpm-app-042022/home/add-staff/')
     },
-    editStaff() {
+    editStaff(staff) {
+      const emitter = useEmitter()
+      //console.log(staff)
+      emitter.emit("editStaff", staff);
       router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
     },
     deleteStaff(staff) {
-      console.log(staff)
-      const data = this.formStaff
+      const data = this.staffs
       fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + staff.id, {
         method: 'DELETE',
         headers: {

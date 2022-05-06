@@ -49,7 +49,7 @@
           >
           <p class="mb-0 mt-3">
             <span class="fs-12">Nếu bạn đã có tài khoản, </span>
-            <a class="text-decoration-none" href="http://localhost:8080/login">Đăng nhập</a>
+            <a class="text-decoration-none" href="#" @click="login">Đăng nhập</a>
           </p>
         </div>
         <div class="d-flex">
@@ -67,11 +67,13 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "SignUp",
   methods: {
     login() {
-      window.open("http://localhost:8080/login", "_self");
+      router.push('/hcpm-app-042022/login/')
     }
   }
 }

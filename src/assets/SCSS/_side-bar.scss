@@ -1,3 +1,5 @@
+@import "../font/fontawesome-pro-5.0.13/css/all.css";
+
 .content {
   max-width: 100%;
   overflow: hidden;
@@ -55,16 +57,23 @@
   margin: 20px auto;
 }
 
-.list-staff {
+.list-staff-title {
   padding: 12px;
   text-decoration: none;
   color: white;
+}
+
+.icon:hover > img {
+  width: 17px;
+  height: 17px;
+  //transform: rotate(90deg);
 }
 
 .list-staff:hover, .staff-item:hover, .custumer-item:hover {
   cursor: pointer;
   background-color: #111216;
   color: white;
+  margin-left: 3px;
 }
 
 .list-staff:focus, .staff-item:focus, .custumer-item:focus {
@@ -88,6 +97,12 @@
 
 .icon-user {
   margin-bottom: 2px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 15px;
 }
 
 .icon:hover {

@@ -11,9 +11,8 @@
             @click="started"
         >
           Bắt đầu
-          <img class="mb-1 ms-2" src="../../assets/images/icons/right-arrow-1.png">
+          <i class="fas fa-arrow-right ms-2"></i>
         </button>
-        <ModalConfirmDeleteStaff />
       </div>
     </div>
   </div>
@@ -21,11 +20,9 @@
 
 <script>
 import router from "@/router";
-import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff";
-
 export default {
   name: "OnBoarding",
-  components: {ModalConfirmDeleteStaff},
+  components: {},
   methods: {
     started() {
       router.push('/hcpm-app-042022/login/')

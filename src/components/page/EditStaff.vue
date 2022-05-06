@@ -39,7 +39,7 @@
               </div>
               <div class="mt-2">
                 <label class="fw-500">Thời gian tuyển</label>
-                <input type="date" class="form-control fs-12" value="05/03/2022">
+                <input type="date" class="form-control fs-12">
               </div>
               <div class="mt-2">
                 <label class="fw-500">Địa chỉ</label>
@@ -67,13 +67,21 @@
 
 <script>
 import router from "@/router";
-
+import useEmitter from "@/composables/useEmitter";
 export default {
   name: "EditStaff",
   data() {
     return {
-      lang: ['Java','Java','Java','Java','Java']
+      lang: ['Java','Java','Java','Java','Java'],
+      dataOfStaff: {}
     }
+  },
+  created() {
+    const emitter = useEmitter()
+    emitter.on("editStaff", isOpen => {
+      this.dataOfStaff = isOpen;
+      console.log(this.dataOfStaff)
+    });
   },
   methods: {
     cancelEditStaff() {

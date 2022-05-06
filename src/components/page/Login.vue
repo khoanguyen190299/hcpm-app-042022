@@ -32,7 +32,7 @@
               <input type="checkbox">
               <p class="ms-2 mb-0">Remember</p>
             </div>
-            <a class="sign-up" href="http://localhost:8080/sign-up">Đăng ký</a>
+            <a class="sign-up" href="#" @click="signUp">Đăng ký</a>
           </div>
         </div>
         <div class="d-flex">
@@ -46,8 +46,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -58,8 +56,10 @@ export default {
   name: "Log-in",
   methods: {
     login() {
-      //window.open("http://localhost:8080/hcpm-app-042022/home", "_self");
       router.push('/hcpm-app-042022/home/')
+    },
+    signUp() {
+      router.push('/hcpm-app-042022/sign-up/')
     }
   }
 }
