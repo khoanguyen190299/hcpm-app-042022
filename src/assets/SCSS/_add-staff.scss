@@ -9,3 +9,37 @@
 .fw-500 {
   font-weight: 500 !important;
 }
+
+.toast-success {
+  top: 120px;
+  color: white;
+  background-color: #6ff170;
+  position: absolute;
+  width: 220px;
+  height: 40px;
+  font-weight: 500;
+  z-index: 1;
+  border-radius: 5px;
+  //box-shadow: 0 0 2px #bdb5b5;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.hide-toast {
+  right: -220px;
+  animation-name: hide;
+  animation-duration: 1s;
+}
+
+@keyframes hide {
+  from {right: 30px;}
+  to {right: -220px}
+}
+
+
+.show-toast {
+  right: 30px;
+  animation-name: show;
+  animation-duration: 1s;
+}
