@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="toast-success" :class="!confirmPassword? 'hide-toast' : 'show-toast'">Đăng ký thành công</div>
+      <div class="toast-success hcpm-toast" :class="!confirmPassword? 'hide-toast' : 'show-toast'">Đăng ký thành công</div>
       <div class="logo">
         <img class="w-100" src="../../assets/images/logo.png" alt>
       </div>

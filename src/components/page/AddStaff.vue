@@ -1,6 +1,6 @@
 <template>
   <div class="staff">
-    <div class="toast-success" :class="!isShowToats? 'hide-toast' : 'show-toast'">Thêm thành công</div>
+    <div class="toast-success hcpm-toast" :class="!isShowToats? 'hide-toast' : 'show-toast'">Thêm thành công</div>
     <div class="staff-header w-100">
       <h6 class="staff-title mb-0">Thêm nhân viên</h6>
     </div>

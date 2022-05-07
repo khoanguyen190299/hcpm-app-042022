@@ -56,7 +56,6 @@
                 </div>
               </div>
             </div>
-
           </div>
           <div class="text-center mt-5 mb-5" v-else>
             <h5 class="not-staff">Hiện tại chưa có khách hàng nào!</h5>

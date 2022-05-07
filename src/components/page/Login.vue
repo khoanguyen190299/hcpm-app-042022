@@ -1,6 +1,7 @@
 <template>
   <div class="main">
-    <div class="toast-success" :class="!isLogin? 'hide-toast' : 'show-toast'">Đăng nhập thành công</div>
+    <div class="toast-success hcpm-toast" :class="!isLogin? 'hide-toast' : 'show-toast'">Đăng nhập thành công</div>
+    <div class="toast-danger hcpm-toast" :class="!isLoginFail? 'hide-toast' : 'show-toast'">Email hoặc Password không đúng</div>
     <div class="spinner-border text-secondary position-absolute top-50 start-50" role="status" v-if="isLogin">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -80,10 +81,10 @@ export default {
     return {
       isLogin: false,
       inputValue: false,
+      isLoginFail: false,
       formInput: [],
       acount: [],
-      dataAcount: {}
-
+      dataAcount: {},
     }
   },
   created () {
@@ -94,6 +95,7 @@ export default {
       router.push('/hcpm-app-042022/sign-up/')
     },
     login() {
+      var me = this
       if (!this.formInput.email || !this.formInput.password) {
         this.inputValue = true
       }
@@ -108,6 +110,11 @@ export default {
         setTimeout(function () {
           router.push('/hcpm-app-042022/home/')
         }, 4000)
+      } else if (this.formInput.email && this.formInput.password) {
+        this.isLoginFail = true
+        setTimeout(function () {
+          me.isLoginFail = false
+        }, 2000)
       }
     },
     async getData() {
