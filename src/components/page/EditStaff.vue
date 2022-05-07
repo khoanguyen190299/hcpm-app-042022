@@ -67,6 +67,7 @@
 
 <script>
 import router from "@/router";
+import { inject } from 'vue'
 export default {
   name: "EditStaff",
   data() {
@@ -74,6 +75,12 @@ export default {
       lang: ['Java','Java','Java','Java','Java'],
       getDataEditStaff: {}
     }
+  },
+  setup() {
+    const emitter = inject('emitter');
+    emitter.on('editSta', (value) => {
+      console.log(121, value.name)
+    });
   },
   methods: {
     cancelEditStaff() {

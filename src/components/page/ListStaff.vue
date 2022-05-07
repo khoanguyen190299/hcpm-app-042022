@@ -111,6 +111,7 @@
 <script>
 import router from "@/router";
 import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff";
+import { inject } from 'vue';
 export default {
   name: "ListStaff",
   components: {ModalConfirmDeleteStaff},
@@ -179,6 +180,16 @@ export default {
   created () {
     this.getData()
   },
+  setup() {
+    const emitter = inject('emitter');
+    const editStaff = (staff) => {
+      emitter.emit('editSta', staff);
+      router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
+    };
+    return {
+      editStaff
+    }
+  },
   methods: {
     async getData() {
       const response = await fetch("https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff")
@@ -188,10 +199,10 @@ export default {
     addStaff() {
       router.push('/hcpm-app-042022/home/add-staff/')
     },
-    editStaff(staff) {
-      console.log(staff)
-      router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
-    },
+    // editStaff(staff) {
+    //   console.log(staff)
+    //   router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
+    // },
     deleteStaff(staff) {
       const data = this.staffs
       fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + staff.id, {

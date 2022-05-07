@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from "@/router";
+import HighchartsVue from 'highcharts-vue'
 import "bootstrap/dist/js/bootstrap.js"
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +11,10 @@ import mitt from 'mitt';
 
 const emitter = mitt();
 const app = createApp(App);
-app.config.globalProperties.emitter = emitter;
+app.provide('emitter', emitter);
 
-createApp(App).use(router).use(BootstrapVue3).mount('#app')
+app
+    .use(router)
+    .use(BootstrapVue3)
+    .use(HighchartsVue)
+    .mount('#app')
