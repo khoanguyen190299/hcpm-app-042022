@@ -8,17 +8,23 @@
       <div class="staff-box h-100">
         <div class="d-flex justify-content-between">
           <div class="d-flex mb-3">
-            <button class="btn btn-sm btn-outline-secondary">Import</button>
-            <button class="btn btn-sm btn-outline-secondary ms-3">Export</button>
+            <button class="btn btn-sm btn-outline-secondary"><i class="fal fa-upload me-2"></i>Import</button>
+            <button class="btn btn-sm btn-outline-secondary ms-3"><i class="fal fa-download me-2"></i>Export</button>
           </div>
           <div class="d-flex">
             <div class="search mb-3">
               <input class="form-control input-search fs-14" type="search" placeholder="Tìm kiếm...">
               <img class="icon-search" src="../../assets/images/icons/search.png">
             </div>
-            <button class="btn btn-sm btn-success mb-3 ms-2" title="Thêm nhân viên" @click="addStaff">Thêm</button>
+            <button
+                class="btn btn-sm btn-success mb-3 ms-2"
+                title="Thêm nhân viên"
+                @click="addStaff"
+            >
+              <i class="fal fa-user-plus me-1 fs-12"></i>
+              Thêm
+            </button>
           </div>
-
         </div>
         <div class="table-box">
           <div class="overflow-auto w-100 mb-0" v-if="this.staffs.length">
