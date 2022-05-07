@@ -63,12 +63,6 @@
   color: white;
 }
 
-.icon:hover > img {
-  width: 17px;
-  height: 17px;
-  //transform: rotate(90deg);
-}
-
 .list-staff:hover, .staff-item:hover, .custumer-item:hover {
   cursor: pointer;
   background-color: #111216;
@@ -103,6 +97,7 @@
   display: flex;
   align-items: center;
   padding: 15px;
+  font-size: 24px;
 }
 
 .icon:hover {

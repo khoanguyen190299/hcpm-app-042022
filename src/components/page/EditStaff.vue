@@ -17,7 +17,7 @@
             <div class="col-md-6">
               <div>
                 <label class="fw-500">Họ và tên</label>
-                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A">
+                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A" v-model="getDataEditStaff.name">
               </div>
               <div class="mt-2">
                 <label class="fw-500">Tuổi</label>
@@ -67,21 +67,13 @@
 
 <script>
 import router from "@/router";
-import useEmitter from "@/composables/useEmitter";
 export default {
   name: "EditStaff",
   data() {
     return {
       lang: ['Java','Java','Java','Java','Java'],
-      dataOfStaff: {}
+      getDataEditStaff: {}
     }
-  },
-  created() {
-    const emitter = useEmitter()
-    emitter.on("editStaff", isOpen => {
-      this.dataOfStaff = isOpen;
-      console.log(this.dataOfStaff)
-    });
   },
   methods: {
     cancelEditStaff() {

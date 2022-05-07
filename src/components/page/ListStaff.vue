@@ -57,10 +57,10 @@
               <div class="table-content bg-white action th-class-3">
                 <div class="action-item d-flex justify-content-center m-auto">
                   <div @click="editStaff(staff)" title="Edit" class="me-3 icon-action">
-                    <img class="w-100" src="../../assets/images/icons/editing.png">
+                    <i class="fal fa-edit"></i>
                   </div>
-                  <div @click="deleteStaff(staff)" title="Delete" class="icon-action">
-                    <img class="w-100" src="../../assets/images/icons/bin.png">
+                  <div @click="deleteStaff(staff)" data-bs-toggle="modal" data-bs-target="#modalConfirmDeleteStaff" title="Delete" class="icon-action">
+                    <i class="fal fa-trash-alt"></i>
                   </div>
                 </div>
               </div>
@@ -98,15 +98,17 @@
         </div>
       </div>
     </div>
+    <ModalConfirmDeleteStaff />
   </div>
 </template>
 
 <script>
 import router from "@/router";
-import useEmitter from "@/composables/useEmitter";
+import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff";
 export default {
   name: "ListStaff",
-  components: {},
+  components: {ModalConfirmDeleteStaff},
+  emits: ['editStaff'],
   data() {
     return {
       /*staffTitle: [
@@ -182,9 +184,7 @@ export default {
       router.push('/hcpm-app-042022/home/add-staff/')
     },
     editStaff(staff) {
-      const emitter = useEmitter()
-      //console.log(staff)
-      emitter.emit("editStaff", staff);
+      console.log(staff)
       router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
     },
     deleteStaff(staff) {

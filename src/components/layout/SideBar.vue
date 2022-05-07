@@ -16,7 +16,7 @@
             </div>
           </a>
           <label class="icon" for="show-detail-staff">
-            <img class="w-100" src="../../assets/images/icons/right-arrow.png">
+            <i class="fal fa-angle-right"></i>
           </label>
         </div>
         <input type="checkbox" class="d-none" id="show-detail-staff" checked>
@@ -35,7 +35,7 @@
             </div>
           </a>
           <label class="icon" for="show-detail-custumer">
-            <img class="w-100" src="../../assets/images/icons/right-arrow.png">
+            <i class="fal fa-angle-right"></i>
           </label>
         </div>
         <input type="checkbox" class="d-none" id="show-detail-custumer" checked>

@@ -27,16 +27,11 @@
 }
 
 .hide-toast {
-  right: -220px;
+  //right: -220px;
   animation-name: hide;
   animation-duration: 1s;
+  display: none;
 }
-
-@keyframes hide {
-  from {right: 30px;}
-  to {right: -220px}
-}
-
 
 .show-toast {
   right: 30px;
