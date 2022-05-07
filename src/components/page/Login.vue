@@ -108,7 +108,6 @@ export default {
         setTimeout(function () {
           router.push('/hcpm-app-042022/home/')
         }, 4000)
-
       }
     },
     async getData() {

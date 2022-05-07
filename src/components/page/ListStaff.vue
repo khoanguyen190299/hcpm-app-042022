@@ -108,7 +108,6 @@ import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff"
 export default {
   name: "ListStaff",
   components: {ModalConfirmDeleteStaff},
-  emits: ['editStaff'],
   data() {
     return {
       /*staffTitle: [

@@ -51,13 +51,20 @@
         <label class="btn-toogle" for="show">
           <img class="w-100" src="../../assets/images/icons/menu.png">
         </label>
-        <a class="avatar me-3" href="#">
-          <img class="w-100" src="../../assets/images/img-user.png">
-        </a>
+        <div class="">
+          <label class="avatar me-3" for="show-option">
+            <img class="w-100" src="../../assets/images/img-user.png">
+          </label>
+          <input class="d-none" type="checkbox" id="show-option">
+          <ul class="option p-0 bg-white mt-1 fs-12" v-if="showOptionUser">
+            <li> <i class="fal fa-user-circle"></i> Thông tin</li>
+            <li @click="signOut"> <i class="fal fa-sign-out-alt"></i> Đăng xuất</li>
+          </ul>
+        </div>
       </div>
       <router-view />
       <div class="d-flex justify-content-between license fs-12 text-secondary">
-        <p class="mb-0"><a class="text-decoration-none" href="#"> CoreUI© </a> 2020 creativeLabs.</p>
+        <p class="mb-0"><a class="text-decoration-none" href="https://bootstrap-vue.org/"> Bootstrap-vue </a> 2020 creativeLabs.</p>
         <p class="mb-0">
           Powered by
           <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
@@ -78,7 +85,16 @@ import router from "@/router";
 
 export default {
   name: "SideBar",
+  data() {
+    return {
+      showOptionUser: true
+    }
+  },
   methods: {
+    signOut() {
+      router.push('/hcpm-app-042022/login/')
+      this.showOptionUser = false
+    },
     openStaff() {
       router.push('/hcpm-app-042022/home/staff/')
     },
