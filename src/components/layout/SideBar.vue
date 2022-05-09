@@ -3,7 +3,7 @@
     <div class="d-flex">
       <input class="icon-show" type="checkbox" id="show" checked>
       <div class="sidebar fs-14">
-        <div class="logo-sidebar">
+        <div class="logo-sidebar" @click="openHomePage">
           <img class="w-100" src="../../assets/images/logo.png" alt>
         </div>
         <div class="d-flex list-staff">
@@ -15,12 +15,12 @@
               <p class="mb-0 ms-2">Nhân viên</p>
             </div>
           </a>
-          <label class="icon" for="show-detail-staff">
+          <label class="icon" @click="showStaffOption">
             <i class="fal fa-angle-right"></i>
           </label>
         </div>
-        <input type="checkbox" class="d-none" id="show-detail-staff" checked>
-        <div class="staff-detail">
+
+        <div class="staff-detail" v-if="isStaffOption">
           <a class="staff-item" href="#" @click="openListStaff">Danh sách nhân viên</a>
           <a class="staff-item" href="#" @click="openAddStaff">Thêm nhân viên</a>
         </div>
@@ -34,12 +34,11 @@
               <p class="mb-0 ms-2 abc">Khách hàng</p>
             </div>
           </a>
-          <label class="icon" for="show-detail-custumer">
+          <label class="icon" @click="showCustomerOption">
             <i class="fal fa-angle-right"></i>
           </label>
         </div>
-        <input type="checkbox" class="d-none" id="show-detail-custumer" checked>
-        <div class="custumer-detail">
+        <div class="custumer-detail" v-if="isCustomerOption">
           <a class="custumer-item" href="#" @click="openListCustomer">Danh sách khách hàng</a>
           <a class="custumer-item" href="#" @click="openAddCustomer">Thêm khách hàng</a>
         </div>
@@ -52,11 +51,10 @@
           <img class="w-100" src="../../assets/images/icons/menu.png">
         </label>
         <div class="">
-          <label class="avatar me-3" for="show-option">
+          <label class="avatar me-3" @click="showOptionUser">
             <img class="w-100" src="../../assets/images/img-user.png">
           </label>
-          <input class="d-none" type="checkbox" id="show-option">
-          <ul class="option p-0 bg-white mt-1 fs-12" v-if="showOptionUser">
+          <ul class="option p-0 bg-white mt-1 fs-12" v-if="isShowOptionUser">
             <li> <i class="fal fa-user-circle"></i> Thông tin</li>
             <li @click="signOut"> <i class="fal fa-sign-out-alt"></i> Đăng xuất</li>
           </ul>
@@ -87,13 +85,32 @@ export default {
   name: "SideBar",
   data() {
     return {
-      showOptionUser: true
+      isShowOptionUser: Boolean,
+      isStaffOption: Boolean,
+      isCustomerOption: Boolean,
     }
   },
+  created() {
+    this.isStaffOption = false
+    this.isShowOptionUser = false
+    this.isCustomerOption = false
+  },
   methods: {
+    showStaffOption() {
+      this.isStaffOption = !this.isStaffOption
+    },
+    showCustomerOption() {
+      this.isCustomerOption = !this.isCustomerOption
+    },
+    showOptionUser() {
+      this.isShowOptionUser = !this.isShowOptionUser
+    },
     signOut() {
       router.push('/hcpm-app-042022/login/')
       this.showOptionUser = false
+    },
+    openHomePage() {
+      router.push('/hcpm-app-042022/home/')
     },
     openStaff() {
       router.push('/hcpm-app-042022/home/staff/')

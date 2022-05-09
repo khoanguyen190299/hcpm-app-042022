@@ -6,7 +6,7 @@
     </div>
     <div class="staff-content">
       <div class="staff-box h-100">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between flex-wrap">
           <div class="d-flex mb-3">
             <button class="btn btn-sm btn-outline-secondary"><i class="fal fa-upload me-2"></i>Import</button>
             <button class="btn btn-sm btn-outline-secondary ms-3"><i class="fal fa-download me-2"></i>Export</button>
@@ -183,7 +183,7 @@ export default {
   setup() {
     const emitter = inject('emitter');
     const editStaff = (staff) => {
-      emitter.emit('editSta', staff);
+      emitter.emit('editStaff', staff);
       router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
     };
     return {

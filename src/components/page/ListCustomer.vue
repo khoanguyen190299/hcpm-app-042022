@@ -1,11 +1,11 @@
 <template>
   <div class="staff">
     <div class="staff-header w-100">
-      <h6 class="staff-title mb-0">Danh sách nhân viên</h6>
+      <h6 class="staff-title mb-0">Danh sách khách hàng</h6>
     </div>
     <div class="staff-content">
-      <div class="staff-box h-100">
-        <div class="d-flex justify-content-between">
+      <div class="staff-box">
+        <div class="d-flex justify-content-between flex-wrap">
           <div class="d-flex mb-3">
             <button class="btn btn-sm btn-outline-secondary"><i class="fal fa-upload me-2"></i>Import</button>
             <button class="btn btn-sm btn-outline-secondary ms-3"><i class="fal fa-download me-2"></i>Export</button>

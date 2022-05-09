@@ -7,15 +7,13 @@
 
 .sidebar {
   width: 240px;
-  //height: 1000px;
   background-color: #191a22;
-  margin-left: -240px;
   color: white;
 }
 
 @keyframes show {
-  from {margin-left: -240px;}
-  to {margin-left: 0}
+  from {margin-left: -240px;display: none}
+  to {margin-left: 0; display: block}
 }
 
 #show:checked + .sidebar {
@@ -31,8 +29,8 @@
 }
 
 @keyframes hide {
-  from {margin-left: 0;}
-  to {margin-left: -240px}
+  from {margin-left: 0;display: block}
+  to {margin-left: -240px;display: none}
 }
 
 .main-content {
@@ -55,6 +53,7 @@
 .logo-sidebar {
   max-width: 120px;
   margin: 20px auto;
+  cursor: pointer;
 }
 
 .list-staff-title {
@@ -104,14 +103,6 @@
   cursor: pointer;
 }
 
-#show-detail-staff:checked + .staff-detail {
-  display: none;
-}
-
-#show-detail-custumer:checked + .custumer-detail {
-  display: none;
-}
-
 .btn-toogle {
   max-width: 20px;
   max-height: 20px;
@@ -152,12 +143,4 @@
   background-color: #0d6efd;
   cursor: pointer;
   color: white;
-}
-
-#show-option:checked + .option {
-  display: block;
-}
-
-#show-option + .option {
-  display: none;
 }

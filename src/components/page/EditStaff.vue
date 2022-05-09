@@ -17,7 +17,7 @@
             <div class="col-md-6">
               <div>
                 <label class="fw-500">Họ và tên</label>
-                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A" v-model="getDataEditStaff.name">
+                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A">
               </div>
               <div class="mt-2">
                 <label class="fw-500">Tuổi</label>
@@ -68,25 +68,34 @@
 <script>
 import router from "@/router";
 import { inject } from 'vue'
+import { ref } from 'vue'
 export default {
   name: "EditStaff",
   data() {
     return {
       lang: ['Java','Java','Java','Java','Java'],
-      getDataEditStaff: {}
+      getDataEditStaff: {},
     }
+  },
+  mounted() {
+    this.getDataEditStaff = this.count
+    console.log(this.getDataEditStaff)
   },
   setup() {
     const emitter = inject('emitter');
-    emitter.on('editSta', (value) => {
-      console.log(121, value.name)
+    const data = emitter.on('editStaff', value => {
+      return value
     });
+    const count = ref(data)
+    return {
+      count
+    }
   },
   methods: {
     cancelEditStaff() {
-      router.go(-2)
-    }
-  }
+      router.push('/hcpm-app-042022/home/list-staff/')
+    },
+  },
 }
 </script>
 
