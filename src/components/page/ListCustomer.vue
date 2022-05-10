@@ -7,8 +7,18 @@
       <div class="staff-box">
         <div class="d-flex justify-content-between flex-wrap">
           <div class="d-flex mb-3">
-            <button class="btn btn-sm btn-outline-secondary"><i class="fal fa-upload me-2"></i>Import</button>
-            <button class="btn btn-sm btn-outline-secondary ms-3"><i class="fal fa-download me-2"></i>Export</button>
+            <button
+                class="btn btn-sm btn-small btn-outline-secondary"
+            >
+              <i class="fal fa-upload me-2"></i>
+              Import
+            </button>
+            <button
+                class="btn btn-sm btn-small btn-outline-secondary ms-3"
+            >
+              <i class="fal fa-download me-2"></i>
+              Export
+            </button>
           </div>
           <div class="d-flex">
             <div class="search mb-3">
@@ -16,7 +26,7 @@
               <img class="icon-search" src="../../assets/images/icons/search.png">
             </div>
             <button
-                class="btn btn-sm btn-success mb-3 ms-2"
+                class="btn btn-sm btn-success mb-3 ms-2 btn-small"
                 title="Thêm khách hàng"
             >
               <i class="fal fa-user-plus me-1 fs-12"></i>
@@ -96,6 +106,19 @@
                     </b-table>-->
         </div>
       </div>
+    </div>
+    <div class="license fs-12 text-secondary">
+      <p class="mb-0"><a class="text-decoration-none" href="https://bootstrap-vue.org/"> Bootstrap-vue </a> 2020 creativeLabs.</p>
+      <p class="mb-0">
+        Powered by
+        <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
+          Bootstrap
+        </a>
+        &
+        <a class="text-decoration-none" href="https://vuejs.org/" target="_blank">
+          VueJS
+        </a>
+      </p>
     </div>
   </div>
 </template>

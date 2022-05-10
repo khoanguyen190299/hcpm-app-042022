@@ -13,7 +13,7 @@
           </div>
           <div class="modal-footer p-2">
             <button type="button" class="btn btn-sm btn-secondary fw-500" data-bs-dismiss="modal">Hủy</button>
-            <button type="button" class="btn btn-sm btn-success fw-500">Đồng ý</button>
+            <button type="button" class="btn btn-sm btn-success fw-500" @click="deleteStaff(staff)">Đồng ý</button>
           </div>
         </div>
       </div>

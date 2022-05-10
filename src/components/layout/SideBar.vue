@@ -6,6 +6,9 @@
         <div class="logo-sidebar" @click="openHomePage">
           <img class="w-100" src="../../assets/images/logo.png" alt>
         </div>
+        <label class="btn-toogle position-absolute btn-toogle-responsive end-0 top-0" for="show">
+          <i class="w-100 fas fa-bars"></i>
+        </label>
         <div class="d-flex list-staff">
           <a class="list-staff-title flex-grow-1" href="#" @click="openStaff">
             <div class="d-flex align-items-center">
@@ -47,13 +50,13 @@
 
     <div class="main-content">
       <div class="heading d-flex justify-content-between align-items-center">
-        <label class="btn-toogle" for="show">
-          <img class="w-100" src="../../assets/images/icons/menu.png">
+        <label class="btn-toogle btn-toogle-full" for="show">
+          <i class="fas fa-bars"></i>
         </label>
-        <div class="">
-          <label class="avatar me-3" @click="showOptionUser">
+        <div class="acount-user">
+          <div class="avatar me-3" @click="showOptionUser">
             <img class="w-100" src="../../assets/images/img-user.png">
-          </label>
+          </div>
           <ul class="option p-0 bg-white mt-1 fs-12" v-if="isShowOptionUser">
             <li> <i class="fal fa-user-circle"></i> Thông tin</li>
             <li @click="signOut"> <i class="fal fa-sign-out-alt"></i> Đăng xuất</li>
@@ -61,19 +64,6 @@
         </div>
       </div>
       <router-view />
-      <div class="d-flex justify-content-between license fs-12 text-secondary">
-        <p class="mb-0"><a class="text-decoration-none" href="https://bootstrap-vue.org/"> Bootstrap-vue </a> 2020 creativeLabs.</p>
-        <p class="mb-0">
-          Powered by
-          <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
-            Bootstrap
-          </a>
-          &
-          <a class="text-decoration-none" href="https://vuejs.org/" target="_blank">
-            VueJS
-          </a>
-        </p>
-      </div>
     </div>
   </div>
 </template>

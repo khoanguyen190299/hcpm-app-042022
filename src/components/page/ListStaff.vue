@@ -5,11 +5,21 @@
       <h6 class="staff-title mb-0">Danh sách nhân viên</h6>
     </div>
     <div class="staff-content">
-      <div class="staff-box h-100">
+      <div class="staff-box h-100 overflow-hidden">
         <div class="d-flex justify-content-between flex-wrap">
           <div class="d-flex mb-3">
-            <button class="btn btn-sm btn-outline-secondary"><i class="fal fa-upload me-2"></i>Import</button>
-            <button class="btn btn-sm btn-outline-secondary ms-3"><i class="fal fa-download me-2"></i>Export</button>
+            <button
+                class="btn btn-sm btn-small btn-outline-secondary"
+            >
+              <i class="fal fa-upload me-2"></i>
+              Import
+            </button>
+            <button
+                class="btn btn-sm btn-small btn-outline-secondary ms-3"
+            >
+              <i class="fal fa-download me-2"></i>
+              Export
+            </button>
           </div>
           <div class="d-flex">
             <div class="search mb-3">
@@ -17,7 +27,7 @@
               <img class="icon-search" src="../../assets/images/icons/search.png">
             </div>
             <button
-                class="btn btn-sm btn-success mb-3 ms-2"
+                class="btn btn-sm btn-success mb-3 ms-2 btn-small"
                 title="Thêm nhân viên"
                 @click="addStaff"
             >
@@ -26,7 +36,7 @@
             </button>
           </div>
         </div>
-        <div class="table-box">
+        <div class="table-box h-100 overflow-auto">
           <div class="overflow-auto w-100 mb-0" v-if="this.staffs.length">
             <div class="table-heading fw-500 d-flex w-100 m-0">
               <div class="table-title th-class-1 border-start-0">Chọn</div>
@@ -65,116 +75,82 @@
                   <div @click="editStaff(staff)" title="Edit" class="me-3 icon-action">
                     <i class="fal fa-edit"></i>
                   </div>
-                  <div @click="deleteStaff(staff)" data-bs-toggle="modal" data-bs-target="#modalConfirmDeleteStaff" title="Delete" class="icon-action">
+                  <div
+                      title="Delete"
+                      class="icon-action"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalConfirmDeleteStaff"
+                      @click="deleteStaff(staff)"
+                  >
                     <i class="fal fa-trash-alt"></i>
                   </div>
                 </div>
               </div>
+              <!-- Modal -->
+              <div
+                  class="modal fade"
+                  id="modalConfirmDeleteStaff"
+              >
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header p-2">
+                      <h5 class="modal-title text-danger">Thông báo</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-2">
+                      <p class="fs-14">Bạn có chắc chắn muốn xóa nhân viên này?</p>
+                    </div>
+                    <div class="modal-footer p-2">
+                      <button type="button" class="btn btn-sm btn-secondary fw-500" data-bs-dismiss="modal">Hủy</button>
+                      <button
+                          type="button"
+                          class="btn btn-sm btn-success fw-500"
+                          @click="confirmDeleteStaff"
+                          data-bs-dismiss="modal"
+                      >
+                        Đồng ý
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
           </div>
           <div class="text-center mt-5 mb-5" v-else>
             <h5 class="not-staff">Hiện tại chưa có nhân viên nào!</h5>
           </div>
-<!--          <b-table
-              class="table-content m-0"
-              :items="staffItems"
-              :fields="staffTitle"
-              responsive
-              bordered
-              borderless
-              hover
-          >
-            <template #cell(action)>
-              <div class="action-item d-flex justify-content-center">
-                <div @click="editStaff" title="Edit" class="me-3 icon-action">
-                  <img class="w-100" src="../../assets/images/icons/editing.png">
-                </div>
-                <div @click="row.deleteStaff" title="Delete" class="icon-action">
-                  <img class="w-100" src="../../assets/images/icons/bin.png">
-                </div>
-              </div>
-            </template>
-            <template #cell(image)>
-              <div class="img-staff">
-                <img class="w-100" :src="staffItems.image" alt=" ">
-              </div>
-            </template>
-          </b-table>-->
         </div>
       </div>
+      <div class="license fs-12 text-secondary">
+        <p class="mb-0"><a class="text-decoration-none" href="https://bootstrap-vue.org/"> Bootstrap-vue </a> 2020 creativeLabs.</p>
+        <p class="mb-0">
+          Powered by
+          <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
+            Bootstrap
+          </a>
+          &
+          <a class="text-decoration-none" href="https://vuejs.org/" target="_blank">
+            VueJS
+          </a>
+        </p>
+      </div>
     </div>
-    <ModalConfirmDeleteStaff />
+
   </div>
 </template>
 
 <script>
 import router from "@/router";
-import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff";
 import { inject } from 'vue';
 export default {
   name: "ListStaff",
-  components: {ModalConfirmDeleteStaff},
+  components: {},
   data() {
     return {
-      /*staffTitle: [
-        {
-          key: 'id',
-          sortable: false,
-          label: 'Mã',
-          thClass: 'th-class-1 table-title',
-        },
-        {
-          key: 'image',
-          sortable: false,
-          label: 'Ảnh',
-          thClass: 'th-class-1 table-title',
-        },
-        {
-          key: 'name',
-          sortable: true,
-          label: 'Họ và tên',
-          thClass: 'th-class-3 table-title'
-        },
-        {
-          key: 'age',
-          sortable: true,
-          label: 'Tuổi',
-          thClass: 'th-class-1 table-title'
-        },
-        {
-          key: 'phone',
-          sortable: true,
-          label: 'Số điện thoại',
-          thClass: 'th-class-4 table-title'
-        },
-        {
-          key: 'email',
-          sortable: true,
-          label: 'Email',
-          thClass: 'th-class-3 table-title'
-        },
-        {
-          key: 'address',
-          sortable: true,
-          label: 'Địa chỉ',
-          thClass: 'th-class-3 table-title'
-        },
-        {
-          key: 'lang',
-          sortable: true,
-          label: 'Bộ phận',
-          thClass: 'th-class-2 table-title'
-        },
-        {
-          key: 'action',
-          label: 'Action',
-          thClass: 'th-class-3 table-title action',
-          tdClass: 'action bg-white p-0',
-        },
-      ],*/
       staffs: [],
       isShowToats: false,
+      isConfirmDeleteStaff: false,
+      staffCoppy: {}
     }
   },
   created () {
@@ -203,9 +179,9 @@ export default {
     //   console.log(staff)
     //   router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
     // },
-    deleteStaff(staff) {
-      const data = this.staffs
-      fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + staff.id, {
+    confirmDeleteStaff() {
+      const data = this.staffCoppy
+      fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + this.staffCoppy.id, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -225,6 +201,9 @@ export default {
           .catch((error) => {
             console.error('Error:', error);
           });
+    },
+    deleteStaff(staff) {
+      this.staffCoppy = staff
     },
   }
 }

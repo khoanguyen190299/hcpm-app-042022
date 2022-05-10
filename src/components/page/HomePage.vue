@@ -92,6 +92,19 @@
           </button>
         </div>
       </div>-->
+      <div class="license fs-12 text-secondary">
+        <p class="mb-0"><a class="text-decoration-none" href="https://bootstrap-vue.org/"> Bootstrap-vue </a> 2020 creativeLabs.</p>
+        <p class="mb-0">
+          Powered by
+          <a class="text-decoration-none" href="https://getbootstrap.com/" target="_blank">
+            Bootstrap
+          </a>
+          &
+          <a class="text-decoration-none" href="https://vuejs.org/" target="_blank">
+            VueJS
+          </a>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -197,6 +210,9 @@ export default {
         }]
       }
     }
+  },
+  methods: {
+
   }
 }
 </script>
