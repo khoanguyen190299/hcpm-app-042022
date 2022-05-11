@@ -8,13 +8,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BootstrapVue3 from 'bootstrap-vue-3'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 import mitt from 'mitt';
+import store from "@/composables/store";
+
 
 const emitter = mitt();
 const app = createApp(App);
-app.provide('emitter', emitter);
-
+//app.provide('emitter', emitter);
+app.config.globalProperties.emitter = emitter;
 app
     .use(router)
     .use(BootstrapVue3)
     .use(HighchartsVue)
+    .use(store)
     .mount('#app')

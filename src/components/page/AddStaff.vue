@@ -111,8 +111,8 @@ export default {
             var me = this
             setTimeout(function () {
               me.isShowToats = false
+              router.push('/hcpm-app-042022/home/list-staff/')
             }, 3000)
-
           })
           .catch((error) => {
             console.error('Error:', error);

@@ -17,7 +17,7 @@
             <div class="col-md-6">
               <div>
                 <label class="fw-500">Họ và tên</label>
-                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A">
+                <input type="text" class="form-control fs-12" v-model="staffEdit.name" placeholder="Ví dụ: Nguyễn Văn A" >
               </div>
               <div class="mt-2">
                 <label class="fw-500">Tuổi</label>
@@ -80,21 +80,19 @@
 
 <script>
 import router from "@/router";
-import { inject } from 'vue'
 export default {
   name: "EditStaff",
   data() {
     return {
       lang: ['Java','Java','Java','Java','Java'],
       getDataEditStaff: {},
+      staffEdit:[]
     }
   },
-  mounted() {
-
-  },
-  setup() {
-    inject('emitter').on('editStaff', value => {
-      console.log(value)
+  created() {
+    this.emitter.on("editStaff", (staff) => {
+      this.staffEdit[0]=staff;
+      console.log(this.staffEdit[0])
     });
   },
   methods: {

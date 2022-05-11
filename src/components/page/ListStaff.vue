@@ -72,7 +72,7 @@
               <div class="table-content th-class-3">{{ staff.lang }}</div>
               <div class="table-content bg-white action th-class-3">
                 <div class="action-item d-flex justify-content-center m-auto">
-                  <div @click="editStaff(staff)" title="Edit" class="me-3 icon-action">
+                  <div @click="emitter.emit('editStaff',staff)" title="Edit" class="me-3 icon-action">
                     <i class="fal fa-edit"></i>
                   </div>
                   <div
@@ -141,7 +141,6 @@
 
 <script>
 import router from "@/router";
-import { inject } from 'vue';
 export default {
   name: "ListStaff",
   components: {},
@@ -154,17 +153,11 @@ export default {
     }
   },
   created () {
-    this.getData()
-  },
-  setup() {
-    const emitter = inject('emitter');
-    const editStaff = (staff) => {
-      emitter.emit('editStaff', staff);
+    this.getData();
+    this.emitter.on("editStaff", (e) => {
+      console.log(e + "okay bro");
       router.push('/hcpm-app-042022/home/list-staff/edit-staff/')
-    };
-    return {
-      editStaff
-    }
+    });
   },
   methods: {
     async getData() {
