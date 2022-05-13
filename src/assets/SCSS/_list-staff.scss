@@ -107,11 +107,17 @@
 
 .icon-action {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 17px;
+  width: 24px;
   height: 24px;
+  border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
+}
+
+.icon-action:hover {
+  background-color: #eeeeee;
 }
 
 .img-staff {
@@ -126,4 +132,20 @@
 .btn-small {
   width: 90px;
   height: 31px;
+}
+
+.delete-all {
+  cursor: pointer;
+  width: 30px;
+  height: 16px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+}
+
+.delete-all:hover {
+  background-color: #cccccc;
+  color: black;
 }

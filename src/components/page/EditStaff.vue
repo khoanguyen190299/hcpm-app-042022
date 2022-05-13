@@ -17,7 +17,7 @@
             <div class="col-md-6">
               <div>
                 <label class="fw-500">Họ và tên</label>
-                <input type="text" class="form-control fs-12" v-model="staffEdit.name" placeholder="Ví dụ: Nguyễn Văn A" >
+                <input type="text" class="form-control fs-12" placeholder="Ví dụ: Nguyễn Văn A" v-model="test.name">
               </div>
               <div class="mt-2">
                 <label class="fw-500">Tuổi</label>
@@ -86,14 +86,7 @@ export default {
     return {
       lang: ['Java','Java','Java','Java','Java'],
       getDataEditStaff: {},
-      staffEdit:[]
     }
-  },
-  created() {
-    this.emitter.on("editStaff", (staff) => {
-      this.staffEdit[0]=staff;
-      console.log(this.staffEdit[0])
-    });
   },
   methods: {
     cancelEditStaff() {
