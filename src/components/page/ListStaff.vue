@@ -37,7 +37,7 @@
             </button>
           </div>
         </div>
-        <div class="overflow-auto w-100 mb-0" v-if="this.staffs.length">
+        <div class="w-100 mb-0" v-if="this.staffs.length">
           <div class="text-secondary fs-12 mb-2 d-flex align-items-center fw-500">
             Selected:
             <strong class="ms-3">
@@ -94,20 +94,16 @@
                   <div
                       v-if="isShowStaff"
                       title="Edit"
-                      data-bs-toggle="modal"
-                      data-bs-target="#modalEditStaff"
                       class="me-1 icon-action"
-                      @click="deleteStaff(staff)"
+                      @click="hideStaff(staff)"
                   >
                     <i class="far fa-eye-slash"></i>
                   </div>
                   <div
                       v-else
                       title="Edit"
-                      data-bs-toggle="modal"
-                      data-bs-target="#modalEditStaff"
                       class="me-1 icon-action"
-                      @click="deleteStaff(staff)"
+                      @click="hideStaff(staff)"
                   >
                     <i class="far fa-eye"></i>
                   </div>
@@ -406,6 +402,10 @@ export default {
       //
       //
       // })
+    },
+    hideStaff(staff) {
+      console.log(staff.id)
+      console.log( typeof null)
     }
   }
 }

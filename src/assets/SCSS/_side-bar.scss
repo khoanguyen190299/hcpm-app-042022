@@ -89,6 +89,10 @@
   margin-left: 3px;
 }
 
+.list-staff:hover a {
+  color: white;
+}
+
 .list-staff:focus, .staff-item:focus, .custumer-item:focus {
   cursor: pointer;
   background-color: #111216;

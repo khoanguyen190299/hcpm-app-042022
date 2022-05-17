@@ -6,7 +6,7 @@
     <div class="staff-content">
       <div class="staff-box">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-body">
                 <highcharts :options="chartOptions" class="mt-4 chart-parent"/>
@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-header bg-white">
                 <b-form-select class="border-0 w-25" :options="langOption"></b-form-select>
@@ -28,7 +28,6 @@
                 <p class="mb-0 text-secondary">Biểu đồ bộ phận theo tháng</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
