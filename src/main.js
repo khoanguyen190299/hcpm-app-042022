@@ -13,7 +13,6 @@ import store from "@/composables/store";
 
 const emitter = mitt();
 const app = createApp(App);
-//app.provide('emitter', emitter);
 app.config.globalProperties.emitter = emitter;
 app
     .use(router)

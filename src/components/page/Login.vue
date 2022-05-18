@@ -74,7 +74,7 @@
 
 <script>
 import router from "@/router";
-
+import {getDataUser} from "@/composables/api";
 export default {
   name: "Log-in",
   data() {
@@ -99,17 +99,19 @@ export default {
       if (!this.formInput.email || !this.formInput.password) {
         this.inputValue = true
       }
-      if (this.formInput.email === this.dataAcount.email &&
-          this.formInput.password === this.dataAcount.password &&
-          this.formInput.email && this.formInput.password
-      ) {
+      const account  = this.acount.filter(item => {
+        if(item.email === this.formInput.email && item.password === this.formInput.password) {
+         return item
+        }
+      })
+      if(account[0]) {
         this.isLogin = true
         setTimeout(function () {
           this.isLogin = false
         }, 2000)
         setTimeout(function () {
           router.push('/hcpm-app-042022/home/')
-        }, 4000)
+        }, 1500)
       } else if (this.formInput.email && this.formInput.password) {
         this.isLoginFail = true
         setTimeout(function () {
@@ -118,11 +120,8 @@ export default {
       }
     },
     async getData() {
-      const response = await fetch("https://62674f9201dab900f1bd5a5c.mockapi.io/staff/acount")
-      const data = await response.json()
-      this.acount = data
-      this.acount.forEach((item) => {
-        this.dataAcount = item
+      getDataUser().then((data) => {
+        this.acount = data.data
       })
     },
   }

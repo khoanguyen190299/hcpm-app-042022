@@ -14,7 +14,7 @@
 }
 
 .th-class-4 {
-  min-width: 130px;
+  min-width: 140px;
 }
 
 .staff-header {
@@ -83,9 +83,19 @@
   border-left: 1px solid #d1caca;
 }
 
+.table-content > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
 .table-title {
   background-color: #d1caca;
   border-left: 1px solid #eddfdf;
+  font-size: 14px;
 }
 
 .table-title , .table-content {

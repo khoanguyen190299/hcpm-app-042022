@@ -81,6 +81,7 @@
 
 <script>
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "AddStaff",
@@ -88,7 +89,8 @@ export default {
     return {
       isShowToats: false,
       lang: ['Java','Java','Java','Java','Java'],
-      formStaff: {}
+      formStaff: {},
+      url: 'https://628324fc92a6a5e4621ea622.mockapi.io/employee/',
     }
   },
   methods: {
@@ -97,26 +99,18 @@ export default {
     },
     addStaff() {
       const data = this.formStaff
-      fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      axios.post(this.url, data)
+      .then(() => {
+        this.isShowToats = true
+        var me = this
+        setTimeout(function () {
+          me.isShowToats = false
+          router.push('/hcpm-app-042022/home/list-staff/')
+        }, 3000)
       })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data);
-            this.isShowToats = true
-            var me = this
-            setTimeout(function () {
-              me.isShowToats = false
-              router.push('/hcpm-app-042022/home/list-staff/')
-            }, 3000)
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+      .catch((error) => {
+         console.error('Error:', error);
+      });
     }
   }
 }

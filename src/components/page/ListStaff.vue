@@ -77,23 +77,23 @@
               <div class="table-content th-class-1 border-start-0 justify-content-center">
                 <input class="check-box-item" type="checkbox" value="staff.id" @change="checked(index,staff)" >
               </div>
-              <div class="table-content th-class-2">HN{{ staff.id }}</div>
+              <div class="table-content th-class-2"><p>HN{{ staff.id }}</p></div>
               <div class="table-content th-class-2 justify-content-center">
                 <div class="img-staff p-0">
                   <img class="w-100" :src="staff.image" alt=" " />
                 </div>
               </div>
-              <div class="table-content th-class-4">{{ staff.name }}</div>
-              <div class="table-content th-class-1">{{ staff.age }}</div>
-              <div class="table-content th-class-4">{{ staff.phone }}</div>
-              <div class="table-content th-class-4">{{ staff.email }}</div>
-              <div class="table-content th-class-4">{{ staff.address }}</div>
-              <div class="table-content th-class-3">{{ staff.lang }}</div>
+              <div class="table-content th-class-4"><p>{{ staff.name }}</p></div>
+              <div class="table-content th-class-1"><p>{{ staff.age }}</p></div>
+              <div class="table-content th-class-4"><p>{{ staff.phone }}</p></div>
+              <div class="table-content th-class-4"><p>{{ staff.email }}</p></div>
+              <div class="table-content th-class-4"><p>{{ staff.address }}</p></div>
+              <div class="table-content th-class-3"><p>{{ staff.lang }}</p></div>
               <div class="table-content bg-white action th-class-3">
                 <div class="action-item d-flex justify-content-center m-auto">
                   <div
                       v-if="isShowStaff"
-                      title="Edit"
+                      title="Hide"
                       class="me-1 icon-action"
                       @click="hideStaff(staff)"
                   >
@@ -101,7 +101,7 @@
                   </div>
                   <div
                       v-else
-                      title="Edit"
+                      title="Show"
                       class="me-1 icon-action"
                       @click="hideStaff(staff)"
                   >
@@ -112,7 +112,7 @@
                        data-bs-toggle="modal"
                        data-bs-target="#modalEditStaff"
                        class="me-1 icon-action"
-                       @click="deleteStaff(staff)"
+                       @click="emitter.emit('editStaff', staff)"
                   >
                     <i class="fal fa-edit"></i>
                   </div>
@@ -128,110 +128,13 @@
                 </div>
               </div>
               <!-- Modal confirm delete staff-->
-              <div
-                  class="modal fade"
-                  id="modalConfirmDeleteStaff"
-              >
-                <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                    <div class="modal-header p-2">
-                      <h5 class="modal-title text-danger">Thông báo</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body p-2">
-                      <p class="fs-14">Bạn có chắc chắn muốn xóa nhân viên này?</p>
-                    </div>
-                    <div class="modal-footer p-2">
-                      <button type="button" class="btn btn-sm btn-secondary fw-500" data-bs-dismiss="modal">Hủy</button>
-                      <button
-                          type="button"
-                          class="btn btn-sm btn-success fw-500"
-                          @click="confirmDeleteStaff"
-                          data-bs-dismiss="modal"
-                      >
-                        Đồng ý
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ModalConfirmDeleteStaff />
 
               <!-- Modal edit staff-->
-              <div
-                  class="modal fade"
-                  id="modalEditStaff"
-              >
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header p-4">
-                      <h5 class="modal-title text-danger">Chỉnh sửa thông tin nhân viên</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body p-4">
-                      <div class="d-flex flex-wrap">
-                        <div class="me-3 mb-2">
-                          <label class="fw-500">Ảnh đại diện</label>
-                          <div class="add-avatar">
-                            <img class="w-100" src="../../assets/images/logo.png" alt>
-                          </div>
-                        </div>
-
-                        <div class="row flex-grow-1">
-                          <div class="col-md-6">
-                            <div>
-                              <label class="fw-500">Họ và tên</label>
-                              <input type="text" class="form-control fs-12" v-model="staffCoppy.name">
-                            </div>
-                            <div class="mt-2">
-                              <label class="fw-500">Tuổi</label>
-                              <input type="text" class="form-control fs-12" v-model="staffCoppy.age">
-                            </div>
-                            <div class="mt-2">
-                              <label class="fw-500">Số điện thoại</label>
-                              <input type="text" class="form-control fs-12" v-model="staffCoppy.phone">
-                            </div>
-                            <div class="mt-2">
-                              <label class="fw-500">Email</label>
-                              <input type="text" class="form-control fs-12" v-model="staffCoppy.email">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div>
-                              <label class="fw-500">Bộ phận</label>
-                              <b-form-select  class="form-control fs-12" v-model="staffCoppy.lang"></b-form-select>
-                            </div>
-                            <div class="mt-2">
-                              <label class="fw-500">Thời gian tuyển</label>
-                              <input type="date" class="form-control fs-12" v-model="staffCoppy.time">
-                            </div>
-                            <div class="mt-2">
-                              <label class="fw-500">Địa chỉ</label>
-                              <input type="text" class="form-control fs-12" v-model="staffCoppy.address">
-                            </div>
-                          </div>
-                          <div class="w-100">
-                            <div class="mt-2">
-                              <label class="fw-500">Thông tin thêm</label>
-                              <textarea class="w-100 form-control fs-12" v-model="staffCoppy.moreInfo"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer p-4">
-                      <button type="button" class="btn btn-sm btn-secondary fw-500" data-bs-dismiss="modal" @click="cancelEditStaff">Hủy</button>
-                      <button
-                          type="button"
-                          class="btn btn-sm btn-success fw-500"
-                          @click="saveEditStaff"
-                          data-bs-dismiss="modal"
-                      >
-                        Lưu
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ModalEditStaff
+                  @cancelEditStaff="cancelEditStaff"
+                  @editStaffSuccess="editStaffSuccess"
+              />
             </div>
           </div>
           <div class="text-center mt-5 mb-5" v-else>
@@ -258,90 +161,65 @@
 
 <script>
 import router from "@/router";
-
+import { getDataEmployee } from "@/composables/api";
+import axios from "axios";
+import ModalConfirmDeleteStaff from "@/components/modal/ModalConfirmDeleteStaff";
+import ModalEditStaff from "@/components/modal/ModalEditStaff";
 export default {
   name: "ListStaff",
-  components: {},
+  components: {ModalEditStaff, ModalConfirmDeleteStaff},
   data() {
     return {
       staffs: [],
       isShowToats: false,
       isShowStaff: true,
       isShowToatsEdit: false,
-      isConfirmDeleteStaff: false,
-      staffCoppy: {},
-      dataStaffNotEdit: {},
       listIdStaffChecked: [],
       selectedQuantity: 0,
+      url: 'https://628324fc92a6a5e4621ea622.mockapi.io/employee/',
     }
   },
-  created () {
-    this.getData();
+  created() {
+    this.getData()
   },
   methods: {
-    async getData() {
-      const response = await fetch("https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff")
-      const data = await response.json()
-      this.staffs = data
+    getData() {
+      getDataEmployee().then((data) => {
+        this.staffs = data.data
+      })
     },
     addStaff() {
       router.push('/hcpm-app-042022/home/add-staff/')
     },
-    confirmDeleteStaff() {
-      const data = this.staffCoppy
-      fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + this.staffCoppy.id, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data);
-            this.getData()
-            this.isShowToats = true
-            var me = this
-            setTimeout(function () {
-              me.isShowToats = false
-            }, 3000)
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-    },
     deleteStaff(staff) {
-      this.staffCoppy = {...staff}
-      this.dataStaffNotEdit = staff
-    },
-    saveEditStaff() {
-      const data = {...this.staffCoppy}
-      fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + data.id, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      this.emitter.on('deleteConfirmed', (value) => {
+        if(value === true) {
+          axios.delete(this.url + staff.id)
+              .then(()=> {
+                this.getData()
+                this.isShowToats = true
+                var me = this
+                setTimeout(function () {
+                  me.isShowToats = false
+                }, 3000)
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+        }
       })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data);
-            this.getData()
-            this.isShowToatsEdit = true
-            var me = this
-            setTimeout(function () {
-              me.isShowToatsEdit = false
-            }, 3000)
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
     },
     cancelEditStaff() {
-      this.staffCoppy = this.dataStaffNotEdit
+      this.getData()
+    },
+    editStaffSuccess() {
+      this.isShowToatsEdit = true
+      setTimeout(function () {
+        this.isShowToatsEdit = false
+      }, 3000)
     },
     checked(index,staff) {
-      if(document.getElementsByClassName("check-box-item")[index].checked ==true) {
+      if(document.getElementsByClassName("check-box-item")[index].checked === true) {
         this.listIdStaffChecked.push(this.staffs[index])
         this.selectedQuantity = this.listIdStaffChecked.length
       }
@@ -356,7 +234,7 @@ export default {
     },
     checkedAll() {
       var listCheck = document.querySelectorAll(".check-box-item")
-      if(document.getElementsByClassName("check-box-all")[0].checked ==true) {
+      if(document.getElementsByClassName("check-box-all")[0].checked === true) {
         this.listIdStaffChecked = this.staffs
         this.selectedQuantity = this.listIdStaffChecked.length
         listCheck.forEach(item => {
@@ -372,40 +250,9 @@ export default {
     },
     deleteAllStaff() {
 
-      // const myPromise = new Promise((resolve, reject) => {
-      //   setTimeout(() => {
-      //     resolve('foo');
-      //   }, 300);
-      // });
-      //
-      // myPromise
-      //     .then()
-      //     .then()
-      //     .then();
-
-      // this.listIdStaffChecked.forEach(item => {
-      //   const data = item
-      //   fetch('https://62674f9201dab900f1bd5a5c.mockapi.io/staff/staff/' + item.id, {
-      //     method: 'DELETE',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(data),
-      //   })
-      //       .then(response => response.json())
-      //       .then(() => {
-      //         this.getData()
-      //       })
-      //       .catch((error) => {
-      //         console.error('Error:', error);
-      //       });
-      //
-      //
-      // })
     },
     hideStaff(staff) {
       console.log(staff.id)
-      console.log( typeof null)
     }
   }
 }

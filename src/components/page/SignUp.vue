@@ -2,9 +2,9 @@
   <div class="main">
     <div class="container">
       <div class="toast-success hcpm-toast" :class="!confirmPassword? 'hide-toast' : 'show-toast'">Đăng ký thành công</div>
-      <div class="logo">
-        <img class="w-100" src="../../assets/images/logo.png" alt>
-      </div>
+<!--      <div class="logo">-->
+<!--        <img class="w-100" src="../../assets/images/logo.png" alt>-->
+<!--      </div>-->
       <div class="login">
         <h5 class="login-title text-center">Đăng ký</h5>
         <div class="p-2">
@@ -105,14 +105,15 @@
 
 <script>
 import router from "@/router";
-
+import axios from "axios";
 export default {
   name: "SignUp",
   data() {
     return {
       inputValue: false,
       formInput: [],
-      confirmPassword: false
+      confirmPassword: false,
+      url: 'https://628324fc92a6a5e4621ea622.mockapi.io/acount/',
     }
   },
   methods: {
@@ -132,14 +133,29 @@ export default {
           this.formInput.phone &&
           this.formInput.password
       ) {
+        axios.post(this.url, {
+          email: this.formInput.email,
+          phone: this.formInput.phone,
+          password: this.formInput.password
+        })
+            .then(()=> {
+              var me = this
+              this.isShowToats = true
+              setTimeout(function () {
+                me.isShowToats = false
+              }, 3000)
+              setTimeout(function () {
+                router.push('/hcpm-app-042022/login/')
+              }, 2500)
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
         this.confirmPassword = true
         var me = this
         setTimeout(function () {
           me.confirmPassword = false
         }, 3000)
-        setTimeout(function () {
-          router.push('/hcpm-app-042022/login/')
-        }, 4000)
       }
     }
   }
