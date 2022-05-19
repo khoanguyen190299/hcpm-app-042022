@@ -7,8 +7,6 @@ import AddStaff from "@/components/page/AddStaff";
 import Customer from "@/components/page/Customer";
 import AddCustomer from "@/components/page/AddCustomer";
 import ListCustomer from "@/components/page/ListCustomer";
-import EditCustomer from "@/components/page/EditCustomer";
-import EditStaff from "@/components/page/EditStaff";
 import OnBoarding from "@/components/page/OnBoarding";
 import HomePage from "@/components/page/HomePage";
 
@@ -50,11 +48,6 @@ const routes = [
         component: AddStaff,
     },
     {
-        path: "/hcpm-app-042022/home/list-staff/edit-staff/",
-        name: "EditStaff",
-        component: EditStaff,
-    },
-    {
         path: "/hcpm-app-042022/home/customer/",
         name: "Customer",
         component: Customer,
@@ -68,11 +61,6 @@ const routes = [
         path: "/hcpm-app-042022/home/list-customer/",
         name: "ListCustomer",
         component: ListCustomer,
-    },
-    {
-        path: "/hcpm-app-042022/home/edit-customer/",
-        name: "AEditCustomer",
-        component: EditCustomer,
     },
 ];
 

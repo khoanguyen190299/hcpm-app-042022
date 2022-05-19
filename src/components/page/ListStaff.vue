@@ -214,8 +214,9 @@ export default {
     },
     editStaffSuccess() {
       this.isShowToatsEdit = true
+      let me = this
       setTimeout(function () {
-        this.isShowToatsEdit = false
+        me.isShowToatsEdit = false
       }, 3000)
     },
     checked(index,staff) {

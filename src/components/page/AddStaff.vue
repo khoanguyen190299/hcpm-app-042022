@@ -10,7 +10,7 @@
           <div class="me-3 mb-2">
             <label class="fw-500">Ảnh đại diện</label>
             <div class="add-avatar">
-              <img class="w-100" src="../../assets/images/logo.png" alt>
+              <img class="w-100" src="../../assets/images/img-user.png" alt>
             </div>
           </div>
 
