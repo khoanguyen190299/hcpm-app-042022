@@ -9,13 +9,23 @@
   width: 240px;
   background-color: #191a22;
   color: white;
+  height: 100%;
+}
+
+.sidebar-responsive {
+  display: none !important;
 }
 
 @media only screen and (max-device-width: 480px) {
+  .sidebar-responsive {
+    display: block !important;
+  }
+  .btn-toogle-full {
+    display: none;
+  }
   .sidebar {
     position: absolute;
     left: 0;
-    height: 100%;
     z-index: 2;
     animation-name: show;
   }
