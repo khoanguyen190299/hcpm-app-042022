@@ -1,22 +1,14 @@
 <template>
-<!--  <router-link to="/home">home</router-link>/
-  <router-link to="/login">login</router-link>-->
-<!--  <router-view />-->
-  <SideBar />
+  <router-view></router-view>
 </template>
 
 <script>
 
-import SideBar from "@/components/layout/SideBar";
 export default {
   name: 'App',
-  components: {
-    SideBar
-
-  }
 }
 </script>
 
 <style>
-@import "assets/SCSS/_side-bar.scss";
+
 </style>

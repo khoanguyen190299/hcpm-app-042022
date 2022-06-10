@@ -120,7 +120,7 @@
           </ul>
         </div>
       </div>
-      <router-view />
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -160,22 +160,22 @@ export default {
       router.push('/hcpm-app-042022/home/')
     },
     openStaff() {
-      router.push('/hcpm-app-042022/home/staff/')
+      router.push('/hcpm-app-042022/staff/')
     },
     openListStaff() {
-      router.push('/hcpm-app-042022/home/list-staff/')
+      router.push('/hcpm-app-042022/list-staff/')
     },
     openAddStaff() {
-      router.push('/hcpm-app-042022/home/add-staff/')
+      router.push('/hcpm-app-042022/add-staff/')
     },
     openCustomer() {
-      router.push('/hcpm-app-042022/home/customer/')
+      router.push('/hcpm-app-042022/customer/')
     },
     openListCustomer() {
-      router.push('/hcpm-app-042022/home/list-customer/')
+      router.push('/hcpm-app-042022/list-customer/')
     },
     openAddCustomer() {
-      router.push('/hcpm-app-042022/home/add-customer/')
+      router.push('/hcpm-app-042022/add-customer/')
     }
   }
 }
