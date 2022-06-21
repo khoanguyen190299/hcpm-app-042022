@@ -56,7 +56,7 @@ const routes = [
   },
 
   {
-    path: "/hcpm-app-042022/",
+    path: "/",
     name: "Onboarding",
     component: OnBoarding,
   },
